@@ -5,6 +5,8 @@ Users pick stocks/ETFs to follow our just get info on
 Users can make accounts and look in on the list of stocks/ETFs they follow
 Users can set an alert time to get alerted on a specific stock or even their whole follow-list 
 --Alerts could be email or text
+Stock data will come from finnhub:
+https://finnhub.io/docs/api/quote 
 
 # Back End
 ---------------------
