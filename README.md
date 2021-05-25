@@ -23,4 +23,6 @@ Front End:
 Thymeleaf and CSS
 
 Future Considerations:
+Display changes in a stocks price over a period of time
+ ex) AAPL is up 5% since 2 weeks ago. MSFT is down 2% since 3 days ago.
 Create a Front End using Angular or React
