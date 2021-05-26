@@ -29,6 +29,9 @@ Deploy to AWS:
 EC2
 Apache and Tomcat
 
+CI/CD:
+CircleCI
+
 Future Considerations:
 Display changes in a stocks price over a period of time
  ex) AAPL is up 5% since 2 weeks ago. MSFT is down 2% since 3 days ago.
