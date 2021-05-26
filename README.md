@@ -13,11 +13,11 @@ Users will have a "Recently Viewed" section which contains stocks/ETFs they sear
 
 # Back End
 ---------------------
--Business Logic:
--Java
--Spring Data
--Spring Security
--MQ for alerting users (rabbitMq?)
+Business Logic:
+- Java
+- Spring Data
+- Spring Security
+- MQ for alerting users (rabbitMq?)
 
 Persistence:
 -Postgres
