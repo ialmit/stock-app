@@ -1,12 +1,14 @@
 ---
 name: Story Template
 about: This template is to be used for creating user stories
-title: ''
+title: As a <user or stakeholder type> I want <a goal> so that <benefit>
 labels: ''
 assignees: ''
 
 ---
 
-As a <user or stakeholder type>
-I want <some software feature>
-So that <some business value>
+** User Story **
+
+** Acceptance Criteria **
+
+** Definition of Done **
