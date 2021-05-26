@@ -13,26 +13,26 @@ Users will have a "Recently Viewed" section which contains stocks/ETFs they sear
 
 # Back End
 ---------------------
-Business Logic:
-Java
-Spring Data
-Spring Security
-MQ for alerting users (rabbitMq?)
+-Business Logic:
+-Java
+-Spring Data
+-Spring Security
+-MQ for alerting users (rabbitMq?)
 
 Persistence:
-Postgres
+-Postgres
 
 Front End:
-Thymeleaf and CSS
+-Thymeleaf and CSS
 
 Deploy to AWS:
-EC2
-Apache and Tomcat
+-EC2
+-Apache and Tomcat
 
 CI/CD:
-CircleCI
+-CircleCI
 
 Future Considerations:
-Display changes in a stocks price over a period of time
- ex) AAPL is up 5% since 2 weeks ago. MSFT is down 2% since 3 days ago.
-Create a Front End using Angular or React
+-Display changes in a stocks price over a period of time
+ -ex) AAPL is up 5% since 2 weeks ago. MSFT is down 2% since 3 days ago.
+-Create a Front End using Angular or React
