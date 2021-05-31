@@ -14,7 +14,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 form-group ">
-                                <input type="text" class="form-control" placeholder="ex: GME" id="stockSymbolDTO"
+                                <input type="text" class="form-control" placeholder="Search by symbol" id="stockSymbolDTO"
                                        th:field="*{stockSymbolDTO}"/>
                                 <div class="alert alert-warning" th:if="${#fields.hasErrors('stockSymbolDTO')}"
                                      th:errors="*{stockSymbolDTO}"></div>
