@@ -8,9 +8,12 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import reactor.core.publisher.Mono;
+
+import javax.validation.Valid;
 
 @Log4j2
 @Controller
@@ -30,13 +33,13 @@ public class StockQuoteController {
 //    https://stackoverflow.com/a/40899905/3791405
 
     @PostMapping(value = "/search/{stockSymbol}", produces = (MediaType.APPLICATION_JSON_VALUE))
-    public String getStockQuoteForASingleCompany(@ModelAttribute("stockSymbolDTO") StockSymbolDTO stockSymbolDTO, Model model) {
+    public String getStockQuoteForASingleCompany(@ModelAttribute(name = "stockSymbolDTO") @Valid StockSymbolDTO stockSymbolDTO,
+                                                 BindingResult bindingResult, Model model) {
 
         if (stockSymbolDTO != null) {
             this.stockQuoteDTO = stockQuoteService.searchBySymbol(stockSymbolDTO);
             this.companyProfileDTO = stockQuoteService.getCompanyInfoBySymbol(stockSymbolDTO.getStockSymbolDTO());
         }
-        //TODO: What should be done if stockSymbolDTO == null?
 
         model.addAttribute("stockPrices", stockQuoteDTO);
         model.addAttribute("companyProfile", companyProfileDTO);
