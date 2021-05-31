@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Stock App Results Page</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<div th:insert="fragments/searchForm.html"></div>
+
+<style>
+    table th{
+        font-size:24px;
+    }
+    table td{
+        font-size:22px;
+    }
+</style>
+
+<!--Table under the form that displays the Stock price information-->
+<!--/*@thymesVar id="companyProfileDTO" type="com.timlai.stockapp.DTO.CompanyProfileDTO"*/-->
+<div class="row">
+    <div class="container h-100 d-flex justify-content-center">
+        <div class="text-center">
+
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Company Name</th>
+                </tr>
+                </thead>
+                <tr th:each="companyProfile : ${companyProfile}">
+                    <td th:text="${companyProfile.getCompanyName()}">Company Name</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="container h-100 d-flex justify-content-center">
+        <div class="text-center">
+
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Current Price</th>
+                </tr>
+                </thead>
+                <tr th:each="stockPrice : ${stockPrices}">
+                    <td th:text="'$' + ${stockPrice.currentPrice}">currentPrice</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="container h-100 d-flex justify-content-center">
+        <table class="table table-bordered">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">Open Price</th>
+                <th scope="col">High Price</th>
+                <th scope="col">Low Price</th>
+                <th scope="col">Previous Close Price</th>
+            </tr>
+            </thead>
+            <tr scope="row" th:each="stockPrice : ${stockPrices}">
+                <td th:text="'$' + ${stockPrice.openPrice}">openPrice</td>
+                <td th:text="'$' + ${stockPrice.highPrice}">highPrice</td>
+                <td th:text="'$' + ${stockPrice.lowPrice}">highPrice</td>
+                <td th:text="'$' + ${stockPrice.previousClosePrice}">highPrice</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.min.js}"></script>
+</body>
+</html>
