@@ -1,0 +1,28 @@
+<!--/*@thymesVar id="stockSymbolDTO" type="com.timlai.stockapp.DTO.StockSymbolDTO"*/-->
+<form action="#" th:object="${stockSymbolDTO}" th:action="@{'/search/' + ${stockSymbolDTO.getStockSymbolDTO()} }" method="post">
+    <div class="container-fluid" style="margin-top: 20px">
+        <div class="row">
+            <div class="container h-100 d-flex justify-content-center">
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Enter Stock Symbol</h1>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="form-group row">
+                            <div class="col-md-6 form-group ">
+                                <input type="text" class="form-control" placeholder="ex: GME"
+                                       th:field="*{stockSymbolDTO}"/>
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
