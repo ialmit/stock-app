@@ -5,19 +5,15 @@
         <div class="row">
             <div class="container h-100 d-flex justify-content-center">
                 <div class="panel panel-primary">
-
                     <div class="panel-heading">
                         <h1 class="panel-title">Enter Stock Symbol</h1>
                     </div>
-
                     <div class="panel-body">
-
                         <div class="form-group row">
                             <div class="col-md-6 form-group ">
-                                <input type="text" class="form-control" placeholder="ex: GME" id="stockSymbolDTO"
+                                <input type="text" class="form-control" placeholder="Search by symbol"
+                                       id="stockSymbolDTO"
                                        th:field="*{stockSymbolDTO}"/>
-                                <div class="alert alert-warning" th:if="${#fields.hasErrors('stockSymbolDTO')}"
-                                     th:errors="*{stockSymbolDTO}"></div>
                             </div>
                             <div class="col-md-3 form-group">
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -25,6 +21,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <!--https://getbootstrap.com/docs/4.0/components/alerts/-->
+            <div class="container h-100 d-flex justify-content-center">
+                <div class="alert alert-danger" role="alert"
+                     th:if="${#fields.hasErrors('stockSymbolDTO')}"
+                     th:errors="*{stockSymbolDTO}"></div>
             </div>
         </div>
     </div>
