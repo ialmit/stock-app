@@ -1,9 +1,8 @@
 <!--/*@thymesVar id="stockSymbolDTO" type="com.timlai.stockapp.DTO.StockSymbolDTO"*/-->
 <form action="#" th:object="${stockSymbolDTO}" th:action="@{'/search/' + ${stockSymbolDTO.getStockSymbolDTO()} }"
-      method="post">
+      method="post" class="form-inline my-2 my-lg-0">
     <div class="container-fluid" style="margin-top: 20px">
         <div class="row">
-            <div class="container h-100 d-flex justify-content-center">
                 <div class="panel panel-primary">
                     <div class="panel-body">
                         <div class="form-group row">
@@ -20,11 +19,8 @@
                 </div>
             </div>
             <!--https://getbootstrap.com/docs/4.0/components/alerts/-->
-            <div class="container h-100 d-flex justify-content-center">
                 <div class="alert alert-danger" role="alert"
                      th:if="${#fields.hasErrors('stockSymbolDTO')}"
                      th:errors="*{stockSymbolDTO}"></div>
-            </div>
-        </div>
     </div>
 </form>
