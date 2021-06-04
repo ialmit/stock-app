@@ -9,7 +9,8 @@
 </head>
 <body>
 
-<div th:insert="fragments/searchForm.html"></div>
+<div th:insert="fragments/navBar.html"></div>
+<div th:replace="fragments/marketNews.html :: news(${marketNews})"></div>
 
 <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
