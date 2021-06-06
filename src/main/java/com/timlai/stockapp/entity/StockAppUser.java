@@ -3,8 +3,8 @@ package com.timlai.stockapp.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "User")
-public class User {
+@Table(name = "stock_app_user")
+public class StockAppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id; //This is the unique identifier to be used as the primary key.
