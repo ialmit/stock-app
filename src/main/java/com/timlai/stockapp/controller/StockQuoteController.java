@@ -32,7 +32,7 @@ public class StockQuoteController {
     //The data retrieved from the GET request will be displayed on the GUI
 //    https://stackoverflow.com/a/40899905/3791405
 
-    @PostMapping(value = "/search/{stockSymbol}", produces = (MediaType.APPLICATION_JSON_VALUE))
+    @PostMapping(value = "/search", produces = (MediaType.APPLICATION_JSON_VALUE))
     public String getStockQuoteForASingleCompany(@ModelAttribute(name = "stockSymbolDTO") @Valid StockSymbolDTO stockSymbolDTO,
                                                  BindingResult bindingResult, Model model) {
 
