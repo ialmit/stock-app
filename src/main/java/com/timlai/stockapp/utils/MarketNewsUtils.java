@@ -12,19 +12,17 @@ import java.util.Random;
 @Component
 public class MarketNewsUtils {
 
-    private MarketNewsService marketNewsService;
-
     private List<MarketNewsDTO> originalList;
 
     private Random random;
 
-    public MarketNewsUtils(MarketNewsService marketNewsService) {
-        this.marketNewsService = marketNewsService;
-        this.originalList = new ArrayList<>(Arrays.asList(this.marketNewsService.getMarketNews()));
+    public MarketNewsUtils() {
         this.random = new Random();
     }
 
     public List<MarketNewsDTO> getRandomNewsStoriesToDisplay(MarketNewsDTO[] marketNewsDTOS, int numberOfStoriesToDisplay) {
+        originalList = new ArrayList<>(Arrays.asList(marketNewsDTOS));
+
         List<MarketNewsDTO> listToDisplay = new ArrayList<>();
 
         for (int i = 0; i < numberOfStoriesToDisplay; i++) {
@@ -36,7 +34,7 @@ public class MarketNewsUtils {
         }
 
         if(this.originalList.size() < 5){
-            this.originalList = new ArrayList<>(Arrays.asList(this.marketNewsService.getMarketNews()));
+            this.originalList = new ArrayList<>(Arrays.asList(marketNewsDTOS));
         }
 
         return listToDisplay;

@@ -3,6 +3,8 @@ package com.timlai.stockapp.controller;
 import com.timlai.stockapp.DTO.CompanyProfileDTO;
 import com.timlai.stockapp.DTO.StockQuoteDTO;
 import com.timlai.stockapp.DTO.StockSymbolDTO;
+import com.timlai.stockapp.exceptions.ErrorMessages;
+import com.timlai.stockapp.exceptions.StockSymbolException;
 import com.timlai.stockapp.service.StockQuoteService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.MediaType;
@@ -22,9 +24,11 @@ public class StockQuoteController {
     private StockQuoteService stockQuoteService;
     private StockQuoteDTO stockQuoteDTO;
     private CompanyProfileDTO companyProfileDTO;
+    private CompanyNewsController companyNewsController;
 
-    public StockQuoteController(StockQuoteService stockQuoteService) {
+    public StockQuoteController(StockQuoteService stockQuoteService, CompanyNewsController companyNewsController) {
         this.stockQuoteService = stockQuoteService;
+        this.companyNewsController = companyNewsController;
     }
 
     //The User hits this endpoint and it makes a GET request to the finnhub stock quote api.
@@ -32,17 +36,19 @@ public class StockQuoteController {
     //The data retrieved from the GET request will be displayed on the GUI
 //    https://stackoverflow.com/a/40899905/3791405
 
-    @PostMapping(value = "/search", produces = (MediaType.APPLICATION_JSON_VALUE))
+    @PostMapping(value = "/search")
     public String getStockQuoteForASingleCompany(@ModelAttribute(name = "stockSymbolDTO") @Valid StockSymbolDTO stockSymbolDTO,
                                                  BindingResult bindingResult, Model model) {
-
-        if (stockSymbolDTO != null) {
-            this.stockQuoteDTO = stockQuoteService.searchBySymbol(stockSymbolDTO);
-            this.companyProfileDTO = stockQuoteService.getCompanyInfoBySymbol(stockSymbolDTO.getStockSymbolDTO());
+        if (stockSymbolDTO == null) {
+            throw new StockSymbolException(ErrorMessages.STOCK_SYMBOL_IS_NULL.getErrorMessage());
         }
+
+        this.stockQuoteDTO = stockQuoteService.searchBySymbol(stockSymbolDTO);
+        this.companyProfileDTO = stockQuoteService.getCompanyInfoBySymbol(stockSymbolDTO.getStockSymbolDTO());
 
         model.addAttribute("stockPrices", stockQuoteDTO);
         model.addAttribute("companyProfile", companyProfileDTO);
+        model.addAttribute("companyNews", companyNewsController.displayCompanyNews(stockSymbolDTO));
 
         return "home/results";
 
