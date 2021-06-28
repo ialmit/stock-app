@@ -1,0 +1,18 @@
+<div th:fragment="news (companyNewsList, thisname)">
+    <div class="row" style="padding: 20px;">
+        <div class="container h-100 d-flex justify-content-center">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                <tr>
+                    <th>News Stories for <label th:text="${thisname}">fifiif</label></th>
+                    <th>Source</th>
+                </tr>
+                </thead>
+                <tr th:each="companyNews: ${companyNewsList}">
+                    <td><a th:href="${companyNews.url}" target="_blank" th:text="${companyNews.headline}"></a></td>
+                    <td><span th:text="${companyNews.source}"> Source </span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
