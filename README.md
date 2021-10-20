@@ -11,28 +11,26 @@ Users can set an alert time to get alerted on a specific stock or even their who
 Users will have a "Recently Viewed" section which contains stocks/ETFs they searched for recently 
 --Up to 5 stocks/ETFs will be in this section
 
-# Back End
----------------------
-Business Logic:
+# Business Logic:
 - Java
 - Spring MVC
 - Spring Data JPA
 - Spring Security
 
-Database:
+# Database:
 - Postgres
 
-CI/CD:
+# CI/CD:
 - Jenkins
 
-Front End:
+# Front End:
 - Thymeleaf and CSS
 
-Deploy to AWS:
+# Deploy to AWS:
 - EC2
 - Tomcat
 
-Future Considerations:
+# Future Considerations:
 - Display changes in a stocks price over a period of time
  - ex) AAPL is up 5% since 2 weeks ago. MSFT is down 2% since 3 days ago.
 - Create a Front End using Angular or React
