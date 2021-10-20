@@ -15,24 +15,26 @@ Users will have a "Recently Viewed" section which contains stocks/ETFs they sear
 ---------------------
 Business Logic:
 - Java
-- Spring Data
+- Spring MVC
+- Spring Data JPA
 - Spring Security
-- MQ for alerting users (rabbitMq?)
 
-Persistence:
+Database:
 - Postgres
+
+CI/CD:
+- Jenkins
 
 Front End:
 - Thymeleaf and CSS
 
 Deploy to AWS:
 - EC2
-- Apache and Tomcat
-
-CI/CD:
-- CircleCI
+- Tomcat
 
 Future Considerations:
 - Display changes in a stocks price over a period of time
  - ex) AAPL is up 5% since 2 weeks ago. MSFT is down 2% since 3 days ago.
 - Create a Front End using Angular or React
+- Add MQ for alerting users
+- Create a CI/CD pipeline using AWS native tools
